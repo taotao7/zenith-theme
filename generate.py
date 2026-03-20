@@ -730,7 +730,7 @@ def gen_switch_sh() -> str:
         # ── Ghostty ──
         GHOSTTY_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ghostty/config"
         if [ -f "$GHOSTTY_CONFIG" ]; then
-          sed -i '' "s/^theme = zenith-.*/theme = zenith-$MODE/" "$GHOSTTY_CONFIG" 2>/dev/null || true
+          sed -i '' "s/^theme = .*/theme = dark:zenith-dark,light:zenith-light/" "$GHOSTTY_CONFIG" 2>/dev/null || true
           echo "  ✓ Ghostty → zenith-$MODE"
         fi
 

@@ -25,7 +25,7 @@ install.sh            ← Symlinks configs to correct locations
 switch.sh             ← Toggle dark/light across ghostty+tmux+nvim
 dist/
 ├── ghostty/          ← Theme files + config snippet
-├── tmux/             ← Status bar with bubble separators + truecolor passthrough
+├── tmux/             ← Rounded pill tabs, Nerd Font icons + truecolor passthrough
 └── nvim/zenith.nvim/ ← Full Lua colorscheme plugin (200+ highlight groups)
 ```
 
