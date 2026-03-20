@@ -1,0 +1,27 @@
+# Zenith — Ghostty config snippet
+# Append to ~/.config/ghostty/config
+
+# Theme (switch between dark/light)
+theme = zenith-dark
+# theme = zenith-light
+
+# Font — research recommends JetBrains Mono Nerd Font
+font-family = "JetBrainsMono Nerd Font"
+font-size = 16
+font-thicken = true
+
+# Visual ergonomics: glass effect (0.85-0.95 sweet spot)
+background-opacity = 0.92
+background-blur-radius = 20
+# macOS native glass (alternative):
+# background-blur = macos-glass-regular
+
+# Cursor
+cursor-style = bar
+cursor-style-blink = false
+
+# Window
+window-padding-x = 8
+window-padding-y = 4
+window-decoration = false
+macos-titlebar-style = hidden

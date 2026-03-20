@@ -1,0 +1,26 @@
+# Zenith Light — Ghostty Theme
+# Generated from palette.toml
+
+background = #f0edf8
+foreground = #2a2840
+cursor-color = #6838b0
+cursor-text = #f0edf8
+selection-background = #cfc8e0
+selection-foreground = #2a2840
+
+palette = 0=#e6e3f0
+palette = 1=#c83858
+palette = 2=#2a8858
+palette = 3=#907020
+palette = 4=#3060c0
+palette = 5=#6838b0
+palette = 6=#1880a0
+palette = 7=#2a2840
+palette = 8=#8880a8
+palette = 9=#c83858
+palette = 10=#2a8858
+palette = 11=#907020
+palette = 12=#3060c0
+palette = 13=#6838b0
+palette = 14=#1880a0
+palette = 15=#2a2840

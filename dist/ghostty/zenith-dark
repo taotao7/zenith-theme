@@ -1,0 +1,26 @@
+# Zenith Dark — Ghostty Theme
+# Generated from palette.toml
+
+background = #161621
+foreground = #c8cfe6
+cursor-color = #b070e8
+cursor-text = #161621
+selection-background = #2e2e4a
+selection-foreground = #c8cfe6
+
+palette = 0=#1e1e2e
+palette = 1=#f07088
+palette = 2=#70c890
+palette = 3=#e0c070
+palette = 4=#6898f0
+palette = 5=#b070e8
+palette = 6=#60c8d8
+palette = 7=#c8cfe6
+palette = 8=#5c6888
+palette = 9=#f07088
+palette = 10=#70c890
+palette = 11=#e0c070
+palette = 12=#6898f0
+palette = 13=#b070e8
+palette = 14=#60c8d8
+palette = 15=#c8cfe6
