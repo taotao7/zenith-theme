@@ -219,7 +219,7 @@ def gen_nvim_theme() -> str:
 
           -- ── Editor UI ──
           set(0, "Normal",           { fg = p.text.fg, bg = config.transparent and "NONE" or p.base.bg })
-          set(0, "NormalNC",         { fg = p.text.fg, bg = config.dim_inactive and p.base.bg_dim or (config.transparent and "NONE" or p.base.bg) })
+          set(0, "NormalNC",         { fg = config.dim_inactive and p.text.comment or p.text.fg, bg = config.transparent and "NONE" or (config.dim_inactive and p.base.bg_dim or p.base.bg) })
           set(0, "NormalFloat",      { fg = p.text.fg, bg = p.base.bg2 })
           set(0, "FloatBorder",      { fg = p.base.border, bg = p.base.bg2 })
           set(0, "FloatTitle",       { fg = p.accent.purple, bg = p.base.bg2, bold = true })
