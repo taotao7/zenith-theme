@@ -1,0 +1,6 @@
+# Zenith — Yazi Theme
+# Auto-switches between dark/light based on system appearance.
+
+[flavor]
+dark  = "zenith-dark"
+light = "zenith-light"

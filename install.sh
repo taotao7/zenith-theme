@@ -53,13 +53,13 @@ install_nvim() {
 install_yazi() {
   echo "Installing Yazi theme..."
   YAZI_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/yazi"
-  mkdir -p "$YAZI_DIR"
-  cp "$DIST/yazi/zenith-dark.toml"  "$YAZI_DIR/zenith-dark.toml"
-  cp "$DIST/yazi/zenith-light.toml" "$YAZI_DIR/zenith-light.toml"
-  cp "$DIST/yazi/zenith-dark.toml"  "$YAZI_DIR/theme.toml"
-  echo "  ✓ Themes → $YAZI_DIR/zenith-{dark,light}.toml"
-  echo "  ✓ Active  → $YAZI_DIR/theme.toml (dark)"
-  echo "  ℹ Chezmoi: chezmoi add ~/.config/yazi/theme.toml"
+  mkdir -p "$YAZI_DIR/flavors"
+  cp -r "$DIST/yazi/flavors/zenith-dark.yazi"  "$YAZI_DIR/flavors/"
+  cp -r "$DIST/yazi/flavors/zenith-light.yazi" "$YAZI_DIR/flavors/"
+  cp    "$DIST/yazi/theme.toml"                "$YAZI_DIR/theme.toml"
+  echo "  ✓ Flavors → $YAZI_DIR/flavors/zenith-{dark,light}.yazi/"
+  echo "  ✓ Theme   → $YAZI_DIR/theme.toml (auto dark/light)"
+  echo "  ℹ Chezmoi: chezmoi add ~/.config/yazi/theme.toml ~/.config/yazi/flavors/"
 }
 
 # Parse args

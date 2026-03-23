@@ -187,7 +187,7 @@ def gen_yazi(palette: dict, mode: str) -> str:
     d = p["diagnostic"]
 
     return textwrap.dedent(f"""\
-        # Zenith {mode.title()} — Yazi Theme
+        # Zenith {mode.title()} — Yazi Flavor
         # Generated from palette.toml
 
         [mgr]
@@ -310,6 +310,18 @@ def gen_yazi(palette: dict, mode: str) -> str:
           {{ name = "*/",                           fg = "{a['blue']}" }},
           {{ name = "*",                            fg = "{t['fg']}" }},
         ]
+    """)
+
+
+def gen_yazi_theme_pointer() -> str:
+    """Generate theme.toml — auto dark/light via Yazi flavor system."""
+    return textwrap.dedent("""\
+        # Zenith — Yazi Theme
+        # Auto-switches between dark/light based on system appearance.
+
+        [flavor]
+        dark  = "zenith-dark"
+        light = "zenith-light"
     """)
 
 
@@ -813,13 +825,13 @@ def gen_install_sh() -> str:
         install_yazi() {
           echo "Installing Yazi theme..."
           YAZI_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/yazi"
-          mkdir -p "$YAZI_DIR"
-          cp "$DIST/yazi/zenith-dark.toml"  "$YAZI_DIR/zenith-dark.toml"
-          cp "$DIST/yazi/zenith-light.toml" "$YAZI_DIR/zenith-light.toml"
-          cp "$DIST/yazi/zenith-dark.toml"  "$YAZI_DIR/theme.toml"
-          echo "  ✓ Themes → $YAZI_DIR/zenith-{dark,light}.toml"
-          echo "  ✓ Active  → $YAZI_DIR/theme.toml (dark)"
-          echo "  ℹ Chezmoi: chezmoi add ~/.config/yazi/theme.toml"
+          mkdir -p "$YAZI_DIR/flavors"
+          cp -r "$DIST/yazi/flavors/zenith-dark.yazi"  "$YAZI_DIR/flavors/"
+          cp -r "$DIST/yazi/flavors/zenith-light.yazi" "$YAZI_DIR/flavors/"
+          cp    "$DIST/yazi/theme.toml"                "$YAZI_DIR/theme.toml"
+          echo "  ✓ Flavors → $YAZI_DIR/flavors/zenith-{dark,light}.yazi/"
+          echo "  ✓ Theme   → $YAZI_DIR/theme.toml (auto dark/light)"
+          echo "  ℹ Chezmoi: chezmoi add ~/.config/yazi/theme.toml ~/.config/yazi/flavors/"
         }
 
         # Parse args
@@ -903,13 +915,6 @@ def gen_switch_sh() -> str:
         done
         echo "  ✓ Neovim → background=$MODE"
 
-        # ── Yazi ──
-        YAZI_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/yazi"
-        if [ -f "$YAZI_DIR/zenith-$MODE.toml" ]; then
-          cp "$YAZI_DIR/zenith-$MODE.toml" "$YAZI_DIR/theme.toml"
-          echo "  ✓ Yazi → zenith-$MODE"
-        fi
-
         echo "Done! Now in $MODE mode."
     """)
 
@@ -931,8 +936,9 @@ def main():
     write(DIST / "tmux" / "truecolor.conf", gen_tmux_truecolor())
 
     # Yazi
-    write(DIST / "yazi" / "zenith-dark.toml", gen_yazi(palette, "dark"))
-    write(DIST / "yazi" / "zenith-light.toml", gen_yazi(palette, "light"))
+    write(DIST / "yazi" / "flavors" / "zenith-dark.yazi" / "flavor.toml", gen_yazi(palette, "dark"))
+    write(DIST / "yazi" / "flavors" / "zenith-light.yazi" / "flavor.toml", gen_yazi(palette, "light"))
+    write(DIST / "yazi" / "theme.toml", gen_yazi_theme_pointer())
 
     # Neovim plugin
     nvim = DIST / "nvim" / "zenith.nvim"

@@ -47,11 +47,4 @@ for sock in /tmp/nvim.*/0 "${XDG_RUNTIME_DIR:-/tmp}"/nvim.*/0; do
 done
 echo "  ✓ Neovim → background=$MODE"
 
-# ── Yazi ──
-YAZI_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/yazi"
-if [ -f "$YAZI_DIR/zenith-$MODE.toml" ]; then
-  cp "$YAZI_DIR/zenith-$MODE.toml" "$YAZI_DIR/theme.toml"
-  echo "  ✓ Yazi → zenith-$MODE"
-fi
-
 echo "Done! Now in $MODE mode."

@@ -1,0 +1,123 @@
+# Zenith Dark — Yazi Flavor
+# Generated from palette.toml
+
+[mgr]
+cwd             = { fg = "#60c8d8" }
+find_keyword    = { fg = "#e0c070", bold = true, italic = true }
+find_position   = { fg = "#b070e8", bg = "reset", italic = true }
+symlink_target  = { fg = "#60c8d8", italic = true }
+marker_selected = { fg = "#161621", bg = "#70c890" }
+marker_copied   = { fg = "#161621", bg = "#e0c070" }
+marker_cut      = { fg = "#161621", bg = "#f07088" }
+marker_marked   = { fg = "#161621", bg = "#60c8d8" }
+count_selected  = { fg = "#70c890", bg = "#1e1e2e" }
+count_copied    = { fg = "#e0c070", bg = "#1e1e2e" }
+count_cut       = { fg = "#f07088", bg = "#1e1e2e" }
+border_symbol   = "│"
+border_style    = { fg = "#3a3a58" }
+
+[app]
+overall = { bg = "#161621" }
+
+[tabs]
+active   = { fg = "#c8cfe6", bg = "#262640", bold = true }
+inactive = { fg = "#5c6888", bg = "#1e1e2e" }
+
+[indicator]
+parent  = { fg = "#5c6888", bg = "#1e1e2e" }
+current = { fg = "#c8cfe6", bg = "#262640", bold = true }
+preview = { fg = "#5c6888", bg = "#1e1e2e" }
+
+[mode]
+normal_main = { fg = "#161621", bg = "#6898f0", bold = true }
+normal_alt  = { fg = "#6898f0", bg = "#1e1e2e" }
+select_main = { fg = "#161621", bg = "#70c890", bold = true }
+select_alt  = { fg = "#70c890", bg = "#1e1e2e" }
+unset_main  = { fg = "#161621", bg = "#e09868", bold = true }
+unset_alt   = { fg = "#e09868", bg = "#1e1e2e" }
+
+[status]
+overall        = { bg = "#1e1e2e" }
+perm_type      = { fg = "#6898f0" }
+perm_read      = { fg = "#e0c070" }
+perm_write     = { fg = "#f07088" }
+perm_exec      = { fg = "#70c890" }
+perm_sep       = { fg = "#5c6888" }
+progress_label  = { fg = "#c8cfe6", bold = true }
+progress_normal = { fg = "#6898f0" }
+progress_error  = { fg = "#f05068" }
+
+[which]
+cols            = 3
+mask            = { bg = "#1e1e2e" }
+cand            = { fg = "#60c8d8" }
+rest            = { fg = "#5c6888" }
+desc            = { fg = "#c8cfe6" }
+separator       = "  "
+separator_style = { fg = "#3a3a58" }
+
+[confirm]
+border  = { fg = "#3a3a58" }
+title   = { fg = "#b070e8" }
+body    = { fg = "#c8cfe6" }
+list    = { fg = "#8e95b0" }
+btn_yes = { fg = "#161621", bg = "#70c890", bold = true }
+btn_no  = { fg = "#161621", bg = "#f07088", bold = true }
+
+[spot]
+border   = { fg = "#3a3a58" }
+title    = { fg = "#b070e8" }
+tbl_col  = { fg = "#60c8d8", bold = true }
+tbl_cell = { fg = "#c8cfe6" }
+
+[notify]
+title_info  = { fg = "#60c8d8" }
+title_warn  = { fg = "#e0a040" }
+title_error = { fg = "#f05068" }
+
+[pick]
+border   = { fg = "#3a3a58" }
+active   = { fg = "#161621", bg = "#6898f0", bold = true }
+inactive = { fg = "#8e95b0" }
+
+[input]
+border   = { fg = "#3a3a58" }
+title    = { fg = "#b070e8" }
+value    = { fg = "#c8cfe6" }
+selected = { fg = "#161621", bg = "#6898f0" }
+
+[cmp]
+border   = { fg = "#3a3a58" }
+active   = { fg = "#161621", bg = "#6898f0", bold = true }
+inactive = { fg = "#8e95b0" }
+
+[tasks]
+border  = { fg = "#3a3a58" }
+title   = { fg = "#b070e8" }
+hovered = { fg = "#c8cfe6", underline = true }
+
+[help]
+on      = { fg = "#60c8d8" }
+run     = { fg = "#b070e8" }
+desc    = { fg = "#c8cfe6" }
+hovered = { reversed = true, bold = true }
+footer  = { fg = "#161621", bg = "#5c6888" }
+
+[filetype]
+rules = [
+  { mime = "image/*",                      fg = "#e070a8" },
+  { mime = "video/*",                      fg = "#b070e8" },
+  { mime = "audio/*",                      fg = "#60c8d8" },
+  { mime = "application/zip",              fg = "#e09868" },
+  { mime = "application/gzip",             fg = "#e09868" },
+  { mime = "application/x-tar",            fg = "#e09868" },
+  { mime = "application/x-bzip2",          fg = "#e09868" },
+  { mime = "application/x-7z-compressed",  fg = "#e09868" },
+  { mime = "application/x-rar",            fg = "#e09868" },
+  { mime = "application/pdf",              fg = "#f07088" },
+  { name = "*", is = "exec",               fg = "#70c890" },
+  { name = "*", is = "orphan",             fg = "#f05068", underline = true },
+  { name = "*", is = "link",               fg = "#60c8d8" },
+  { name = "*/",                           fg = "#6898f0" },
+  { name = "*",                            fg = "#c8cfe6" },
+]
