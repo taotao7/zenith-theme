@@ -1,0 +1,123 @@
+# Zenith Light — Yazi Theme
+# Generated from palette.toml
+
+[mgr]
+cwd             = { fg = "#1880a0" }
+find_keyword    = { fg = "#907020", bold = true, italic = true }
+find_position   = { fg = "#6838b0", bg = "reset", italic = true }
+symlink_target  = { fg = "#1880a0", italic = true }
+marker_selected = { fg = "#f0edf8", bg = "#2a8858" }
+marker_copied   = { fg = "#f0edf8", bg = "#907020" }
+marker_cut      = { fg = "#f0edf8", bg = "#c83858" }
+marker_marked   = { fg = "#f0edf8", bg = "#1880a0" }
+count_selected  = { fg = "#2a8858", bg = "#e6e3f0" }
+count_copied    = { fg = "#907020", bg = "#e6e3f0" }
+count_cut       = { fg = "#c83858", bg = "#e6e3f0" }
+border_symbol   = "│"
+border_style    = { fg = "#b8b0cc" }
+
+[app]
+overall = { bg = "#f0edf8" }
+
+[tabs]
+active   = { fg = "#2a2840", bg = "#dcd8e8", bold = true }
+inactive = { fg = "#8880a8", bg = "#e6e3f0" }
+
+[indicator]
+parent  = { fg = "#8880a8", bg = "#e6e3f0" }
+current = { fg = "#2a2840", bg = "#dcd8e8", bold = true }
+preview = { fg = "#8880a8", bg = "#e6e3f0" }
+
+[mode]
+normal_main = { fg = "#f0edf8", bg = "#3060c0", bold = true }
+normal_alt  = { fg = "#3060c0", bg = "#e6e3f0" }
+select_main = { fg = "#f0edf8", bg = "#2a8858", bold = true }
+select_alt  = { fg = "#2a8858", bg = "#e6e3f0" }
+unset_main  = { fg = "#f0edf8", bg = "#b86828", bold = true }
+unset_alt   = { fg = "#b86828", bg = "#e6e3f0" }
+
+[status]
+overall        = { bg = "#e6e3f0" }
+perm_type      = { fg = "#3060c0" }
+perm_read      = { fg = "#907020" }
+perm_write     = { fg = "#c83858" }
+perm_exec      = { fg = "#2a8858" }
+perm_sep       = { fg = "#8880a8" }
+progress_label  = { fg = "#2a2840", bold = true }
+progress_normal = { fg = "#3060c0" }
+progress_error  = { fg = "#c02040" }
+
+[which]
+cols            = 3
+mask            = { bg = "#e6e3f0" }
+cand            = { fg = "#1880a0" }
+rest            = { fg = "#8880a8" }
+desc            = { fg = "#2a2840" }
+separator       = "  "
+separator_style = { fg = "#b8b0cc" }
+
+[confirm]
+border  = { fg = "#b8b0cc" }
+title   = { fg = "#6838b0" }
+body    = { fg = "#2a2840" }
+list    = { fg = "#5c5878" }
+btn_yes = { fg = "#f0edf8", bg = "#2a8858", bold = true }
+btn_no  = { fg = "#f0edf8", bg = "#c83858", bold = true }
+
+[spot]
+border   = { fg = "#b8b0cc" }
+title    = { fg = "#6838b0" }
+tbl_col  = { fg = "#1880a0", bold = true }
+tbl_cell = { fg = "#2a2840" }
+
+[notify]
+title_info  = { fg = "#1880a0" }
+title_warn  = { fg = "#a07010" }
+title_error = { fg = "#c02040" }
+
+[pick]
+border   = { fg = "#b8b0cc" }
+active   = { fg = "#f0edf8", bg = "#3060c0", bold = true }
+inactive = { fg = "#5c5878" }
+
+[input]
+border   = { fg = "#b8b0cc" }
+title    = { fg = "#6838b0" }
+value    = { fg = "#2a2840" }
+selected = { fg = "#f0edf8", bg = "#3060c0" }
+
+[cmp]
+border   = { fg = "#b8b0cc" }
+active   = { fg = "#f0edf8", bg = "#3060c0", bold = true }
+inactive = { fg = "#5c5878" }
+
+[tasks]
+border  = { fg = "#b8b0cc" }
+title   = { fg = "#6838b0" }
+hovered = { fg = "#2a2840", underline = true }
+
+[help]
+on      = { fg = "#1880a0" }
+run     = { fg = "#6838b0" }
+desc    = { fg = "#2a2840" }
+hovered = { reversed = true, bold = true }
+footer  = { fg = "#f0edf8", bg = "#8880a8" }
+
+[filetype]
+rules = [
+  { mime = "image/*",                      fg = "#b83878" },
+  { mime = "video/*",                      fg = "#6838b0" },
+  { mime = "audio/*",                      fg = "#1880a0" },
+  { mime = "application/zip",              fg = "#b86828" },
+  { mime = "application/gzip",             fg = "#b86828" },
+  { mime = "application/x-tar",            fg = "#b86828" },
+  { mime = "application/x-bzip2",          fg = "#b86828" },
+  { mime = "application/x-7z-compressed",  fg = "#b86828" },
+  { mime = "application/x-rar",            fg = "#b86828" },
+  { mime = "application/pdf",              fg = "#c83858" },
+  { name = "*", is = "exec",               fg = "#2a8858" },
+  { name = "*", is = "orphan",             fg = "#c02040", underline = true },
+  { name = "*", is = "link",               fg = "#1880a0" },
+  { name = "*/",                           fg = "#3060c0" },
+  { name = "*",                            fg = "#2a2840" },
+]

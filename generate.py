@@ -175,6 +175,144 @@ def gen_tmux_truecolor() -> str:
     """)
 
 
+# ─── Yazi ─────────────────────────────────────────────────────────
+
+
+def gen_yazi(palette: dict, mode: str) -> str:
+    """Generate Yazi theme.toml for the given mode."""
+    p = palette[mode]
+    b = p["base"]
+    t = p["text"]
+    a = p["accent"]
+    d = p["diagnostic"]
+
+    return textwrap.dedent(f"""\
+        # Zenith {mode.title()} — Yazi Theme
+        # Generated from palette.toml
+
+        [mgr]
+        cwd             = {{ fg = "{a['cyan']}" }}
+        find_keyword    = {{ fg = "{a['yellow']}", bold = true, italic = true }}
+        find_position   = {{ fg = "{a['purple']}", bg = "reset", italic = true }}
+        symlink_target  = {{ fg = "{a['cyan']}", italic = true }}
+        marker_selected = {{ fg = "{b['bg']}", bg = "{a['green']}" }}
+        marker_copied   = {{ fg = "{b['bg']}", bg = "{a['yellow']}" }}
+        marker_cut      = {{ fg = "{b['bg']}", bg = "{a['red']}" }}
+        marker_marked   = {{ fg = "{b['bg']}", bg = "{a['cyan']}" }}
+        count_selected  = {{ fg = "{a['green']}", bg = "{b['bg1']}" }}
+        count_copied    = {{ fg = "{a['yellow']}", bg = "{b['bg1']}" }}
+        count_cut       = {{ fg = "{a['red']}", bg = "{b['bg1']}" }}
+        border_symbol   = "│"
+        border_style    = {{ fg = "{b['border']}" }}
+
+        [app]
+        overall = {{ bg = "{b['bg']}" }}
+
+        [tabs]
+        active   = {{ fg = "{t['fg']}", bg = "{b['bg2']}", bold = true }}
+        inactive = {{ fg = "{t['comment']}", bg = "{b['bg1']}" }}
+
+        [indicator]
+        parent  = {{ fg = "{t['comment']}", bg = "{b['bg1']}" }}
+        current = {{ fg = "{t['fg']}", bg = "{b['bg2']}", bold = true }}
+        preview = {{ fg = "{t['comment']}", bg = "{b['bg1']}" }}
+
+        [mode]
+        normal_main = {{ fg = "{b['bg']}", bg = "{a['blue']}", bold = true }}
+        normal_alt  = {{ fg = "{a['blue']}", bg = "{b['bg1']}" }}
+        select_main = {{ fg = "{b['bg']}", bg = "{a['green']}", bold = true }}
+        select_alt  = {{ fg = "{a['green']}", bg = "{b['bg1']}" }}
+        unset_main  = {{ fg = "{b['bg']}", bg = "{a['orange']}", bold = true }}
+        unset_alt   = {{ fg = "{a['orange']}", bg = "{b['bg1']}" }}
+
+        [status]
+        overall        = {{ bg = "{b['bg1']}" }}
+        perm_type      = {{ fg = "{a['blue']}" }}
+        perm_read      = {{ fg = "{a['yellow']}" }}
+        perm_write     = {{ fg = "{a['red']}" }}
+        perm_exec      = {{ fg = "{a['green']}" }}
+        perm_sep       = {{ fg = "{t['comment']}" }}
+        progress_label  = {{ fg = "{t['fg']}", bold = true }}
+        progress_normal = {{ fg = "{a['blue']}" }}
+        progress_error  = {{ fg = "{d['error']}" }}
+
+        [which]
+        cols            = 3
+        mask            = {{ bg = "{b['bg1']}" }}
+        cand            = {{ fg = "{a['cyan']}" }}
+        rest            = {{ fg = "{t['comment']}" }}
+        desc            = {{ fg = "{t['fg']}" }}
+        separator       = "  "
+        separator_style = {{ fg = "{b['border']}" }}
+
+        [confirm]
+        border  = {{ fg = "{b['border']}" }}
+        title   = {{ fg = "{a['purple']}" }}
+        body    = {{ fg = "{t['fg']}" }}
+        list    = {{ fg = "{t['fg_dim']}" }}
+        btn_yes = {{ fg = "{b['bg']}", bg = "{a['green']}", bold = true }}
+        btn_no  = {{ fg = "{b['bg']}", bg = "{a['red']}", bold = true }}
+
+        [spot]
+        border   = {{ fg = "{b['border']}" }}
+        title    = {{ fg = "{a['purple']}" }}
+        tbl_col  = {{ fg = "{a['cyan']}", bold = true }}
+        tbl_cell = {{ fg = "{t['fg']}" }}
+
+        [notify]
+        title_info  = {{ fg = "{a['cyan']}" }}
+        title_warn  = {{ fg = "{d['warn']}" }}
+        title_error = {{ fg = "{d['error']}" }}
+
+        [pick]
+        border   = {{ fg = "{b['border']}" }}
+        active   = {{ fg = "{b['bg']}", bg = "{a['blue']}", bold = true }}
+        inactive = {{ fg = "{t['fg_dim']}" }}
+
+        [input]
+        border   = {{ fg = "{b['border']}" }}
+        title    = {{ fg = "{a['purple']}" }}
+        value    = {{ fg = "{t['fg']}" }}
+        selected = {{ fg = "{b['bg']}", bg = "{a['blue']}" }}
+
+        [cmp]
+        border   = {{ fg = "{b['border']}" }}
+        active   = {{ fg = "{b['bg']}", bg = "{a['blue']}", bold = true }}
+        inactive = {{ fg = "{t['fg_dim']}" }}
+
+        [tasks]
+        border  = {{ fg = "{b['border']}" }}
+        title   = {{ fg = "{a['purple']}" }}
+        hovered = {{ fg = "{t['fg']}", underline = true }}
+
+        [help]
+        on      = {{ fg = "{a['cyan']}" }}
+        run     = {{ fg = "{a['purple']}" }}
+        desc    = {{ fg = "{t['fg']}" }}
+        hovered = {{ reversed = true, bold = true }}
+        footer  = {{ fg = "{b['bg']}", bg = "{t['comment']}" }}
+
+        [filetype]
+        rules = [
+          {{ mime = "image/*",                      fg = "{a['pink']}" }},
+          {{ mime = "video/*",                      fg = "{a['purple']}" }},
+          {{ mime = "audio/*",                      fg = "{a['cyan']}" }},
+          {{ mime = "application/zip",              fg = "{a['orange']}" }},
+          {{ mime = "application/gzip",             fg = "{a['orange']}" }},
+          {{ mime = "application/x-tar",            fg = "{a['orange']}" }},
+          {{ mime = "application/x-bzip2",          fg = "{a['orange']}" }},
+          {{ mime = "application/x-7z-compressed",  fg = "{a['orange']}" }},
+          {{ mime = "application/x-rar",            fg = "{a['orange']}" }},
+          {{ mime = "application/pdf",              fg = "{a['red']}" }},
+          {{ name = "*", is = "exec",               fg = "{a['green']}" }},
+          {{ name = "*", is = "orphan",             fg = "{d['error']}", underline = true }},
+          {{ name = "*", is = "link",               fg = "{a['cyan']}" }},
+          {{ name = "*/",                           fg = "{a['blue']}" }},
+          {{ name = "*",                            fg = "{t['fg']}" }},
+        ]
+    """)
+
+
 # ─── Neovim ───────────────────────────────────────────────────────
 
 
@@ -672,6 +810,18 @@ def gen_install_sh() -> str:
           echo '  Add to init.lua: vim.cmd("colorscheme zenith")'
         }
 
+        install_yazi() {
+          echo "Installing Yazi theme..."
+          YAZI_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/yazi"
+          mkdir -p "$YAZI_DIR"
+          cp "$DIST/yazi/zenith-dark.toml"  "$YAZI_DIR/zenith-dark.toml"
+          cp "$DIST/yazi/zenith-light.toml" "$YAZI_DIR/zenith-light.toml"
+          cp "$DIST/yazi/zenith-dark.toml"  "$YAZI_DIR/theme.toml"
+          echo "  ✓ Themes → $YAZI_DIR/zenith-{dark,light}.toml"
+          echo "  ✓ Active  → $YAZI_DIR/theme.toml (dark)"
+          echo "  ℹ Chezmoi: chezmoi add ~/.config/yazi/theme.toml"
+        }
+
         # Parse args
         COMPONENTS=()
         for arg in "$@"; do
@@ -679,9 +829,10 @@ def gen_install_sh() -> str:
             --ghostty) COMPONENTS+=("ghostty") ;;
             --tmux)    COMPONENTS+=("tmux") ;;
             --nvim)    COMPONENTS+=("nvim") ;;
-            --all)     COMPONENTS=("ghostty" "tmux" "nvim") ;;
+            --yazi)    COMPONENTS+=("yazi") ;;
+            --all)     COMPONENTS=("ghostty" "tmux" "nvim" "yazi") ;;
             -h|--help)
-              echo "Usage: $0 [--all|--ghostty|--tmux|--nvim]"
+              echo "Usage: $0 [--all|--ghostty|--tmux|--nvim|--yazi]"
               echo "  No args = install all components"
               exit 0 ;;
             *) echo "Unknown option: $arg"; exit 1 ;;
@@ -689,7 +840,7 @@ def gen_install_sh() -> str:
         done
 
         # Default: all
-        [ ${#COMPONENTS[@]} -eq 0 ] && COMPONENTS=("ghostty" "tmux" "nvim")
+        [ ${#COMPONENTS[@]} -eq 0 ] && COMPONENTS=("ghostty" "tmux" "nvim" "yazi")
 
         echo "╭─ Zenith Theme Installer ─╮"
         echo ""
@@ -752,6 +903,13 @@ def gen_switch_sh() -> str:
         done
         echo "  ✓ Neovim → background=$MODE"
 
+        # ── Yazi ──
+        YAZI_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/yazi"
+        if [ -f "$YAZI_DIR/zenith-$MODE.toml" ]; then
+          cp "$YAZI_DIR/zenith-$MODE.toml" "$YAZI_DIR/theme.toml"
+          echo "  ✓ Yazi → zenith-$MODE"
+        fi
+
         echo "Done! Now in $MODE mode."
     """)
 
@@ -772,6 +930,10 @@ def main():
     write(DIST / "tmux" / "zenith-light.conf", gen_tmux(palette, "light"))
     write(DIST / "tmux" / "truecolor.conf", gen_tmux_truecolor())
 
+    # Yazi
+    write(DIST / "yazi" / "zenith-dark.toml", gen_yazi(palette, "dark"))
+    write(DIST / "yazi" / "zenith-light.toml", gen_yazi(palette, "light"))
+
     # Neovim plugin
     nvim = DIST / "nvim" / "zenith.nvim"
     write(nvim / "colors" / "zenith.lua", gen_nvim_colors())
@@ -789,6 +951,7 @@ def main():
     print("Generated all theme files!")
     print(f"  dist/ghostty/  — 2 theme files + config snippet")
     print(f"  dist/tmux/     — 2 theme configs (dark + light)")
+    print(f"  dist/yazi/     — 2 theme configs (dark + light)")
     print(f"  dist/nvim/     — zenith.nvim plugin")
     print(f"  install.sh     — install/symlink script")
     print(f"  switch.sh      — dark/light mode switcher")

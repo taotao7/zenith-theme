@@ -50,6 +50,18 @@ install_nvim() {
   echo '  Add to init.lua: vim.cmd("colorscheme zenith")'
 }
 
+install_yazi() {
+  echo "Installing Yazi theme..."
+  YAZI_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/yazi"
+  mkdir -p "$YAZI_DIR"
+  cp "$DIST/yazi/zenith-dark.toml"  "$YAZI_DIR/zenith-dark.toml"
+  cp "$DIST/yazi/zenith-light.toml" "$YAZI_DIR/zenith-light.toml"
+  cp "$DIST/yazi/zenith-dark.toml"  "$YAZI_DIR/theme.toml"
+  echo "  ✓ Themes → $YAZI_DIR/zenith-{dark,light}.toml"
+  echo "  ✓ Active  → $YAZI_DIR/theme.toml (dark)"
+  echo "  ℹ Chezmoi: chezmoi add ~/.config/yazi/theme.toml"
+}
+
 # Parse args
 COMPONENTS=()
 for arg in "$@"; do
@@ -57,9 +69,10 @@ for arg in "$@"; do
     --ghostty) COMPONENTS+=("ghostty") ;;
     --tmux)    COMPONENTS+=("tmux") ;;
     --nvim)    COMPONENTS+=("nvim") ;;
-    --all)     COMPONENTS=("ghostty" "tmux" "nvim") ;;
+    --yazi)    COMPONENTS+=("yazi") ;;
+    --all)     COMPONENTS=("ghostty" "tmux" "nvim" "yazi") ;;
     -h|--help)
-      echo "Usage: $0 [--all|--ghostty|--tmux|--nvim]"
+      echo "Usage: $0 [--all|--ghostty|--tmux|--nvim|--yazi]"
       echo "  No args = install all components"
       exit 0 ;;
     *) echo "Unknown option: $arg"; exit 1 ;;
@@ -67,7 +80,7 @@ for arg in "$@"; do
 done
 
 # Default: all
-[ ${#COMPONENTS[@]} -eq 0 ] && COMPONENTS=("ghostty" "tmux" "nvim")
+[ ${#COMPONENTS[@]} -eq 0 ] && COMPONENTS=("ghostty" "tmux" "nvim" "yazi")
 
 echo "╭─ Zenith Theme Installer ─╮"
 echo ""

@@ -25,7 +25,7 @@ echo "$MODE" > "$TMUX_STATE"
 # ── Ghostty ──
 GHOSTTY_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ghostty/config"
 if [ -f "$GHOSTTY_CONFIG" ]; then
-  sed -i '' "s/^theme = zenith-.*/theme = zenith-$MODE/" "$GHOSTTY_CONFIG" 2>/dev/null || true
+  sed -i '' "s/^theme = .*/theme = dark:zenith-dark,light:zenith-light/" "$GHOSTTY_CONFIG" 2>/dev/null || true
   echo "  ✓ Ghostty → zenith-$MODE"
 fi
 
@@ -46,5 +46,12 @@ for sock in /tmp/nvim.*/0 "${XDG_RUNTIME_DIR:-/tmp}"/nvim.*/0; do
   nvim --server "$sock" --remote-send "<Cmd>set background=$MODE<CR>" 2>/dev/null || true
 done
 echo "  ✓ Neovim → background=$MODE"
+
+# ── Yazi ──
+YAZI_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/yazi"
+if [ -f "$YAZI_DIR/zenith-$MODE.toml" ]; then
+  cp "$YAZI_DIR/zenith-$MODE.toml" "$YAZI_DIR/theme.toml"
+  echo "  ✓ Yazi → zenith-$MODE"
+fi
 
 echo "Done! Now in $MODE mode."
