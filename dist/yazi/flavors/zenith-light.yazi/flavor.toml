@@ -17,27 +17,27 @@ border_symbol   = "│"
 border_style    = { fg = "#b8b0cc" }
 
 [app]
-overall = { bg = "#f0edf8" }
+overall = { bg = "reset" }
 
 [tabs]
 active   = { fg = "#2a2840", bg = "#dcd8e8", bold = true }
-inactive = { fg = "#8880a8", bg = "#e6e3f0" }
+inactive = { fg = "#8880a8", bg = "reset" }
 
 [indicator]
-parent  = { fg = "#8880a8", bg = "#e6e3f0" }
+parent  = { fg = "#8880a8", bg = "reset" }
 current = { fg = "#2a2840", bg = "#dcd8e8", bold = true }
-preview = { fg = "#8880a8", bg = "#e6e3f0" }
+preview = { fg = "#8880a8", bg = "reset" }
 
 [mode]
 normal_main = { fg = "#f0edf8", bg = "#3060c0", bold = true }
-normal_alt  = { fg = "#3060c0", bg = "#e6e3f0" }
+normal_alt  = { fg = "#3060c0", bg = "reset" }
 select_main = { fg = "#f0edf8", bg = "#2a8858", bold = true }
-select_alt  = { fg = "#2a8858", bg = "#e6e3f0" }
+select_alt  = { fg = "#2a8858", bg = "reset" }
 unset_main  = { fg = "#f0edf8", bg = "#b86828", bold = true }
-unset_alt   = { fg = "#b86828", bg = "#e6e3f0" }
+unset_alt   = { fg = "#b86828", bg = "reset" }
 
 [status]
-overall        = { bg = "#e6e3f0" }
+overall        = { bg = "reset" }
 perm_type      = { fg = "#3060c0" }
 perm_read      = { fg = "#907020" }
 perm_write     = { fg = "#c83858" }
@@ -49,7 +49,7 @@ progress_error  = { fg = "#c02040" }
 
 [which]
 cols            = 3
-mask            = { bg = "#e6e3f0" }
+mask            = { bg = "reset" }
 cand            = { fg = "#1880a0" }
 rest            = { fg = "#8880a8" }
 desc            = { fg = "#2a2840" }

@@ -206,27 +206,27 @@ def gen_yazi(palette: dict, mode: str) -> str:
         border_style    = {{ fg = "{b['border']}" }}
 
         [app]
-        overall = {{ bg = "{b['bg']}" }}
+        overall = {{ bg = "reset" }}
 
         [tabs]
         active   = {{ fg = "{t['fg']}", bg = "{b['bg2']}", bold = true }}
-        inactive = {{ fg = "{t['comment']}", bg = "{b['bg1']}" }}
+        inactive = {{ fg = "{t['comment']}", bg = "reset" }}
 
         [indicator]
-        parent  = {{ fg = "{t['comment']}", bg = "{b['bg1']}" }}
+        parent  = {{ fg = "{t['comment']}", bg = "reset" }}
         current = {{ fg = "{t['fg']}", bg = "{b['bg2']}", bold = true }}
-        preview = {{ fg = "{t['comment']}", bg = "{b['bg1']}" }}
+        preview = {{ fg = "{t['comment']}", bg = "reset" }}
 
         [mode]
         normal_main = {{ fg = "{b['bg']}", bg = "{a['blue']}", bold = true }}
-        normal_alt  = {{ fg = "{a['blue']}", bg = "{b['bg1']}" }}
+        normal_alt  = {{ fg = "{a['blue']}", bg = "reset" }}
         select_main = {{ fg = "{b['bg']}", bg = "{a['green']}", bold = true }}
-        select_alt  = {{ fg = "{a['green']}", bg = "{b['bg1']}" }}
+        select_alt  = {{ fg = "{a['green']}", bg = "reset" }}
         unset_main  = {{ fg = "{b['bg']}", bg = "{a['orange']}", bold = true }}
-        unset_alt   = {{ fg = "{a['orange']}", bg = "{b['bg1']}" }}
+        unset_alt   = {{ fg = "{a['orange']}", bg = "reset" }}
 
         [status]
-        overall        = {{ bg = "{b['bg1']}" }}
+        overall        = {{ bg = "reset" }}
         perm_type      = {{ fg = "{a['blue']}" }}
         perm_read      = {{ fg = "{a['yellow']}" }}
         perm_write     = {{ fg = "{a['red']}" }}
@@ -238,7 +238,7 @@ def gen_yazi(palette: dict, mode: str) -> str:
 
         [which]
         cols            = 3
-        mask            = {{ bg = "{b['bg1']}" }}
+        mask            = {{ bg = "reset" }}
         cand            = {{ fg = "{a['cyan']}" }}
         rest            = {{ fg = "{t['comment']}" }}
         desc            = {{ fg = "{t['fg']}" }}
