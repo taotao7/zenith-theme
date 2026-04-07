@@ -1,6 +1,6 @@
 # Zenith
 
-Unified color theme for **Ghostty** + **Tmux** + **Neovim** — scientifically crafted for eye comfort & cyberpunk aesthetics.
+Unified color theme for **Ghostty** + **Tmux** + **Neovim** + **Yazi** — scientifically crafted for eye comfort & cyberpunk aesthetics.
 
 ![Preview](assets/preview.png)
 
@@ -14,7 +14,7 @@ Unified color theme for **Ghostty** + **Tmux** + **Neovim** — scientifically c
 | **Desaturated neon accents** | All accent colors reduced 15-25% from pure values |
 | **Depth-of-field effect** | `dim_inactive` darkens non-focused splits in Neovim |
 
-Both **dark** and **light** modes available, with a single-command toggle across all three tools.
+Both **dark** and **light** modes available, with a single-command toggle across all four tools.
 
 ## Structure
 
@@ -22,10 +22,12 @@ Both **dark** and **light** modes available, with a single-command toggle across
 palette.toml          ← Single source of truth for all colors
 generate.py           ← Reads palette, generates all configs
 install.sh            ← Symlinks configs to correct locations
-switch.sh             ← Toggle dark/light across ghostty+tmux+nvim
+switch.sh             ← Toggle dark/light across ghostty+tmux+nvim+yazi
+theme-switch.sh       ← Switch between zenith ↔ cassette-futurism themes
 dist/
 ├── ghostty/          ← Theme files + config snippet
 ├── tmux/             ← Rounded pill tabs, Nerd Font icons + truecolor passthrough
+├── yazi/             ← Dark/light flavors with auto-switching
 └── nvim/zenith.nvim/ ← Full Lua colorscheme plugin (200+ highlight groups)
 ```
 
@@ -42,6 +44,7 @@ python3 generate.py
 ./install.sh --ghostty
 ./install.sh --tmux
 ./install.sh --nvim
+./install.sh --yazi
 
 # Switch modes (updates ghostty + tmux + neovim simultaneously)
 ./switch.sh dark      # or: light, toggle
@@ -110,6 +113,18 @@ Or simply add to your `init.lua`:
 vim.cmd("colorscheme zenith")
 ```
 
+### Yazi
+
+Auto dark/light switching via the flavor system. After `./install.sh --yazi`, flavors are installed to `~/.config/yazi/flavors/` and `theme.toml` is set up automatically.
+
+```
+~/.config/yazi/
+├── theme.toml                      ← auto dark/light pointer
+└── flavors/
+    ├── zenith-dark.yazi/flavor.toml
+    └── zenith-light.yazi/flavor.toml
+```
+
 ## Palette
 
 Edit `palette.toml` to customize colors, then re-run `python3 generate.py` to regenerate all configs.
@@ -135,7 +150,7 @@ Treesitter, LSP Semantic Tokens, Diagnostics (undercurl), GitSigns, Telescope, n
 
 - Python 3.11+ (for `tomllib`)
 - [Nerd Font](https://www.nerdfonts.com/) (JetBrains Mono recommended)
-- Ghostty, Tmux, Neovim 0.9+
+- Ghostty, Tmux, Neovim 0.9+, Yazi
 
 ## License
 
